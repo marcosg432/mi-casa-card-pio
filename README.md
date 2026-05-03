@@ -1,6 +1,6 @@
 # Mi Casa — Cardápio
 
-Site estático do cardápio, servido com [serve](https://github.com/vercel/serve) na **porta 3013**, pronto para **PM2** na Hostinger (VPS com Node) ou outro servidor Linux.
+Site estático do cardápio, servido com [serve](https://github.com/vercel/serve) na **porta 3015**, pronto para **PM2** na Hostinger (VPS com Node) ou outro servidor Linux.
 
 ## Requisitos
 
@@ -15,7 +15,7 @@ npm install
 npm start
 ```
 
-Abra `http://localhost:3013`.
+Abra `http://localhost:3015`.
 
 ## Hostinger (VPS com acesso SSH)
 
@@ -35,7 +35,7 @@ Abra `http://localhost:3013`.
    pm2 startup
    ```
 
-4. O site ficará em `http://SEU_IP:3013`. Configure **Nginx** (ou o painel da Hostinger) como **proxy reverso** da porta 80/443 para `http://127.0.0.1:3013`, ou libere a porta **3013** no firewall se for acessar direto pela porta.
+4. O site ficará em `http://SEU_IP:3015`. Configure **Nginx** (ou o painel da Hostinger) como **proxy reverso** da porta 80/443 para `http://127.0.0.1:3015`, ou libere a porta **3015** no firewall se for acessar direto pela porta.
 
 ## Comandos PM2 úteis
 

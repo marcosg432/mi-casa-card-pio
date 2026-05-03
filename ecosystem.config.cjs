@@ -1,5 +1,5 @@
 /**
- * PM2 — Hostinger (VPS ou Node)
+ * PM2 — Hostinger (VPS ou Node). Porta definida em package.json (npm start) → 3015.
  * Na VPS: pm2 start ecosystem.config.cjs
  */
 const path = require("path");
