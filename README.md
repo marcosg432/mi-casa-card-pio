@@ -2,6 +2,13 @@
 
 Site estático do cardápio, servido com [serve](https://github.com/vercel/serve) na **porta 3015**, pronto para **PM2** na Hostinger (VPS com Node) ou outro servidor Linux.
 
+## Portas — não interfere nos outros apps
+
+- Este projeto **só usa a porta 3015**. Não abre 3000, 3001, 3013 nem nenhuma outra; cada app continua na sua.
+- No PM2 o nome do processo é **`mi-casa-cardapio`** (fixo no `ecosystem.config.cjs`). **Não substitui** processos com outros nomes; para atualizar use `pm2 restart mi-casa-cardapio`.
+- **Não use** `pm2 delete all` ou `pm2 kill` se quiser manter os outros sites no ar.
+- No **Nginx**, prefira **criar um novo** `server { ... }` ou um novo arquivo em `sites-available` só para este domínio, apontando o `proxy_pass` para `http://127.0.0.1:3015`, **sem apagar** os blocos dos sites que já existem.
+
 ## Requisitos
 
 - Node.js 18 ou superior

@@ -1,5 +1,7 @@
 /**
- * PM2 — Hostinger (VPS ou Node). Porta definida em package.json (npm start) → 3015.
+ * PM2 — Hostinger (VPS ou Node).
+ * - Porta só em package.json (npm start) → 3015 (não altera outras portas).
+ * - Nome do app: mi-casa-cardapio (não sobrescreve outros processos PM2).
  * Na VPS: pm2 start ecosystem.config.cjs
  */
 const path = require("path");
