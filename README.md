@@ -4,7 +4,7 @@ Site estático do cardápio, servido com [serve](https://github.com/vercel/serve
 
 ## Portas — não interfere nos outros apps
 
-- Este projeto **só usa a porta 3015**. Não abre 3000, 3001, 3013 nem nenhuma outra; cada app continua na sua.
+- Este projeto **só usa a porta 3015** em **`0.0.0.0`** (acessível pelo IP público, se o firewall liberar). Não abre outras portas.
 - No PM2 o nome do processo é **`mi-casa-cardapio`** (fixo no `ecosystem.config.cjs`). **Não substitui** processos com outros nomes; para atualizar use `pm2 restart mi-casa-cardapio`.
 - **Não use** `pm2 delete all` ou `pm2 kill` se quiser manter os outros sites no ar.
 - No **Nginx**, prefira **criar um novo** `server { ... }` ou um novo arquivo em `sites-available` só para este domínio, apontando o `proxy_pass` para `http://127.0.0.1:3015`, **sem apagar** os blocos dos sites que já existem.
@@ -23,6 +23,22 @@ npm start
 ```
 
 Abra `http://localhost:3015`.
+
+### Site não abre pelo IP:3015 (timeout no navegador)
+
+O servidor precisa **escutar em todas as interfaces** (`0.0.0.0`), não só em `localhost` — isso já está no `npm start` (`tcp://0.0.0.0:3015`).
+
+Ainda assim, a **Hostinger / firewall** pode bloquear a porta **3015** vinda da internet. No VPS:
+
+```bash
+sudo ufw status
+sudo ufw allow 3015/tcp
+sudo ufw reload
+```
+
+Se usar firewall no painel da Hostinger, crie regra **TCP entrada 3015** para o IP do servidor. Depois: `pm2 restart mi-casa-cardapio` e teste de novo `http://SEU_IP:3015`.
+
+Para produção, o ideal é **domínio + HTTPS** no Nginx apontando para `http://127.0.0.1:3015` (aí não precisa abrir 3015 na internet).
 
 ## Hostinger (VPS com acesso SSH)
 

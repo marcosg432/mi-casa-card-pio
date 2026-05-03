@@ -4,8 +4,8 @@
   "private": true,
   "description": "Cardápio digital Mi Casa Su Casa",
   "scripts": {
-    "start": "serve . -l 3015 -n",
-    "serve": "serve . -l 3015 -n"
+    "start": "serve . -l tcp://0.0.0.0:3015 -n",
+    "serve": "serve . -l tcp://0.0.0.0:3015 -n"
   },
   "engines": {
     "node": ">=18"
