@@ -1,0 +1,576 @@
+/* Mi Casa Su Casa — cardápio (paleta pousada / natureza elegante) */
+:root {
+  --bg-base: #1c1c1c;
+  --bg-page: linear-gradient(180deg, #1c1c1c 0%, #2f3e2f 100%);
+  --card: #2f3e2f;
+  --card-gradient: linear-gradient(135deg, #2f3e2f, #5f6f5b);
+  --title: #e8e1d9;
+  --text-desc: #a8b5a2;
+  --text: #d6d6d6;
+  --accent: #c2a36b;
+  --btn: #5f6f5b;
+  --btn-hover-bg: #c2a36b;
+  --btn-hover-text: #1c1c1c;
+  --divider: rgba(255, 255, 255, 0.1);
+  --overlay-on-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.2)
+  );
+  --radius: 12px;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --max: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--bg-base);
+  background-image: var(--bg-page);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+@supports (height: 100dvh) {
+  html {
+    height: 100dvh;
+  }
+
+  body {
+    height: 100dvh;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 28, 28, 0.95) 0%,
+    rgba(28, 28, 28, 0.65) 50%,
+    transparent 100%
+  );
+}
+
+/* Páginas de cada prato: topo e fundo no verde do card (sem faixa preta) */
+body:has(.detail-page) {
+  background-color: var(--card);
+  background-image: var(--card-gradient);
+}
+
+body:has(.detail-page) .site-header {
+  background: linear-gradient(
+    to bottom,
+    rgba(47, 62, 47, 0.98) 0%,
+    rgba(47, 62, 47, 0.88) 45%,
+    rgba(47, 62, 47, 0.4) 75%,
+    transparent 100%
+  );
+}
+
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--title);
+}
+
+.nav-main {
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-main a {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-desc);
+  transition: color 0.2s;
+}
+
+.nav-main a:hover {
+  color: var(--accent);
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-desc);
+  opacity: 0.9;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 6rem 1.5rem 3rem;
+  background-color: var(--bg-base);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-on-image);
+}
+
+/* Tipografia em camadas (MENU + manuscrito), no topo do hero — centralizado */
+.hero-typo-wrap {
+  position: absolute;
+  top: 5.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  display: inline-block;
+  width: max-content;
+  max-width: min(98vw, 52rem);
+  text-align: center;
+}
+
+.hero-typo-back {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  font-family: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  font-size: clamp(5.75rem, 30vw, 15.5rem);
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  /* Mesmo tom da amostra verde (oliva / musgo escuro) */
+  color: #434d3f;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.hero-typo-front {
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: auto;
+  right: 0.02em;
+  bottom: -0.08em;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(3.35rem, 17vw, 6.75rem);
+  font-weight: 400;
+  line-height: 0.92;
+  color: #fff;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
+  transform: translateX(18%) rotate(-3deg);
+  transform-origin: left bottom;
+  white-space: nowrap;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.label-gold {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  max-width: 18ch;
+  color: var(--title);
+}
+
+.hero p.lead {
+  color: var(--text-desc);
+  max-width: 36ch;
+  margin: 0 0 1.75rem;
+  font-size: 0.95rem;
+}
+
+.btn-gold {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: var(--btn);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  border-radius: 2px;
+}
+
+.btn-gold:hover {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  transform: translateY(-1px);
+}
+
+.hero-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  justify-content: flex-start;
+}
+
+.hero-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.hero-dots span.is-active {
+  background: var(--accent);
+}
+
+/* Preços (use class="price" no HTML quando houver valores) */
+.price {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Split sections */
+main {
+  padding: 0 0 5rem;
+}
+
+.split-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--card-gradient);
+  background-color: var(--card);
+}
+
+.split-section + .split-section {
+  border-top: 1px solid var(--divider);
+}
+
+.split-section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  color: var(--title);
+}
+
+.split-section .desc {
+  color: var(--text-desc);
+  margin: 0 0 1.75rem;
+  max-width: 42ch;
+}
+
+.split-media {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.split-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.category-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 2.5rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.category-title::after {
+  content: "";
+  display: block;
+  width: min(36%, 6.25rem);
+  height: 1px;
+  margin-top: 0.5rem;
+  background: var(--divider);
+}
+
+.category-block {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.category-block:first-of-type .category-title {
+  margin-top: 2rem;
+}
+
+/* Sobremesas, Bebidas, etc.: afasta o título do último card da categoria anterior */
+.category-block:not(:first-of-type) .category-title {
+  margin-top: 3.25rem;
+}
+
+/* Detail page */
+.detail-page {
+  padding-top: 5rem;
+  min-height: 100vh;
+}
+
+.detail-back {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+}
+
+.detail-back a {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.detail-back a:hover {
+  text-decoration: underline;
+}
+
+.detail-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  background: var(--card-gradient);
+  background-color: var(--card);
+}
+
+.detail-inner .label-gold {
+  margin-bottom: 0.5rem;
+}
+
+.detail-inner h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--title);
+}
+
+.detail-hero-img {
+  margin: 0 0 2rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.detail-hero-img img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.detail-body p {
+  color: var(--text-desc);
+  margin: 0 0 1.25rem;
+}
+
+.detail-meta {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--divider);
+  font-size: 0.85rem;
+  color: var(--text-desc);
+}
+
+.detail-meta strong {
+  color: var(--text);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-desc);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--divider);
+}
+
+/* Desktop: colunas alternadas (texto|imagem ou imagem|texto) */
+@media (min-width: 901px) {
+  .split-section.layout-a .split-text {
+    order: 1;
+  }
+
+  .split-section.layout-a .split-media {
+    order: 2;
+  }
+
+  .split-section.layout-b .split-media {
+    order: 1;
+  }
+
+  .split-section.layout-b .split-text {
+    order: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .split-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.25rem;
+  }
+
+  /* Mobile: mesmo padrão em todos — rótulo, título, texto, botão, depois imagem */
+  .split-section .split-text {
+    order: 1;
+  }
+
+  .split-section .split-media {
+    order: 2;
+  }
+
+  .nav-main {
+    display: none;
+  }
+
+  .hero {
+    min-height: 75vh;
+    padding-top: 5rem;
+  }
+
+  .hero-typo-wrap {
+    top: 4.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Só celular: em telas largas mostra aviso e esconde o site */
+.desktop-gate {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-gate {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: var(--card);
+    background-image: var(--card-gradient);
+  }
+
+  .desktop-gate-inner {
+    max-width: 26rem;
+  }
+
+  .desktop-gate-brand {
+    margin: 0 0 1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .desktop-gate #desktop-gate-title {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.35rem, 3vw, 1.85rem);
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--title);
+  }
+
+  .desktop-gate-msg {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-desc);
+  }
+
+  .site-root {
+    display: none !important;
+  }
+}

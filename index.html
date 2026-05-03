@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Casa Su Casa — Cardápio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div
+      class="desktop-gate"
+      role="alertdialog"
+      aria-modal="true"
+      aria-labelledby="desktop-gate-title"
+    >
+      <div class="desktop-gate-inner">
+        <p class="desktop-gate-brand">Mi Casa Su Casa</p>
+        <h1 id="desktop-gate-title">Este cardápio só pode ser visto no celular</h1>
+        <p class="desktop-gate-msg">
+          Abra este endereço no navegador do seu smartphone para acessar o cardápio completo.
+        </p>
+      </div>
+    </div>
+    <div class="site-root">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Mi Casa</a>
+        <nav class="nav-main" aria-label="Principal">
+          <a href="#inicio">Início</a>
+          <a href="#pratos">Pratos</a>
+          <a href="#sobremesas">Sobremesas</a>
+          <a href="#bebidas">Bebidas</a>
+        </nav>
+        <div class="header-actions" aria-hidden="true">◇ ◇</div>
+      </div>
+    </header>
+
+    <section
+      id="inicio"
+      class="hero"
+      style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&q=80')"
+    >
+      <div class="hero-typo-wrap" aria-label="Menu Mi Casa">
+        <span class="hero-typo-back" aria-hidden="true">MENU</span>
+        <span class="hero-typo-front" aria-hidden="true">mi casa</span>
+      </div>
+      <div class="hero-content">
+        <span class="label-gold">Seção do chef</span>
+        <h1>Uma sinfonia de sabor e elegância</h1>
+        <p class="lead">
+          Ingredientes selecionados, técnicas refinadas e o calor de uma casa
+          que abre a mesa para você.
+        </p>
+        <a href="#pratos" class="btn-gold">Explorar cardápio</a>
+        <div class="hero-dots" aria-hidden="true">
+          <span class="is-active"></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="category-block" id="pratos">
+        <h2 class="category-title">Pratos</h2>
+
+        <article class="split-section layout-a">
+          <div class="split-text">
+            <span class="label-gold">Assinatura</span>
+            <h2>Salmão selado com ervas</h2>
+            <p class="desc">
+              Filé de salmão com crosta dourada, manteiga aromática de limão-siciliano
+              e legumes glaceados. Equilíbrio entre frescor do mar e notas defumadas.
+            </p>
+            <a href="itens/prato-salmao.html" class="btn-gold">Conhecer o prato</a>
+          </div>
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=900&q=80"
+              alt="Salmão selado em prato branco"
+              width="900"
+              height="675"
+            />
+          </div>
+        </article>
+
+        <article class="split-section layout-b">
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=900&q=80"
+              alt="Risoto cremoso com cogumelos"
+              width="900"
+              height="675"
+            />
+          </div>
+          <div class="split-text">
+            <span class="label-gold">Massas e risotos</span>
+            <h2>Risoto de funghi porcini</h2>
+            <p class="desc">
+              Arroz arbóreo ao ponto, caldo de cogumelos porcini, parmigiano e
+              toque de trufa negra. Cremoso, intenso e reconfortante.
+            </p>
+            <a href="itens/prato-risoto.html" class="btn-gold">Conhecer o prato</a>
+          </div>
+        </article>
+
+        <article class="split-section layout-a">
+          <div class="split-text">
+            <span class="label-gold">Carnes</span>
+            <h2>Filé ao molho roti</h2>
+            <p class="desc">
+              Corte maturado grelhado, molho roti de vinho tinto, purê de batata
+              rústica e aspargos salteados. Clássico da casa.
+            </p>
+            <a href="itens/prato-file.html" class="btn-gold">Conhecer o prato</a>
+          </div>
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1558030006-450675393462?w=900&q=80"
+              alt="Filé grelhado com guarnição"
+              width="900"
+              height="675"
+            />
+          </div>
+        </article>
+      </div>
+
+      <div class="category-block" id="sobremesas">
+        <h2 class="category-title">Sobremesas</h2>
+
+        <article class="split-section layout-b">
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=900&q=80"
+              alt="Sobremesa com frutas vermelhas"
+              width="900"
+              height="675"
+            />
+          </div>
+          <div class="split-text">
+            <span class="label-gold">Confeitaria</span>
+            <h2>Soufflé de chocolate belga</h2>
+            <p class="desc">
+              Soufflé quente com chocolate 70%, sorvete de baunilha de Madagascar
+              e raspas de cacau. Pedido com tempo de forno — vale a espera.
+            </p>
+            <a href="itens/sobremesa-souffle.html" class="btn-gold">Conhecer a sobremesa</a>
+          </div>
+        </article>
+
+        <article class="split-section layout-a">
+          <div class="split-text">
+            <span class="label-gold">Citrus</span>
+            <h2>Tarte au citron</h2>
+            <p class="desc">
+              Massa amanteigada, creme de limão-siciliano equilibrado e merengue
+              leve tostado. Final fresco e elegante.
+            </p>
+            <a href="itens/sobremesa-tarte.html" class="btn-gold">Conhecer a sobremesa</a>
+          </div>
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=900&q=80"
+              alt="Torta de limão com merengue"
+              width="900"
+              height="675"
+            />
+          </div>
+        </article>
+
+        <article class="split-section layout-b">
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=900&q=80"
+              alt="Tiramisù em camadas"
+              width="900"
+              height="675"
+            />
+          </div>
+          <div class="split-text">
+            <span class="label-gold">Clássicos italianos</span>
+            <h2>Tiramisù da casa</h2>
+            <p class="desc">
+              Mascarpone, café espresso, biscoitos champagne e cacau amargo.
+              Textura aerada, sem álcool na receita clássica servida aqui.
+            </p>
+            <a href="itens/sobremesa-tiramisu.html" class="btn-gold">Conhecer a sobremesa</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="category-block" id="bebidas">
+        <h2 class="category-title">Bebidas</h2>
+
+        <article class="split-section layout-a">
+          <div class="split-text">
+            <span class="label-gold">Carta de vinhos</span>
+            <h2>Seleção tinto reserva</h2>
+            <p class="desc">
+              Blend encorpado com notas de frutas negras, especiarias e taninos
+              sedosos. Harmoniza com carnes e risotos intensos.
+            </p>
+            <a href="itens/bebida-vinho-tinto.html" class="btn-gold">Conhecer a bebida</a>
+          </div>
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=900&q=80"
+              alt="Taças de vinho tinto"
+              width="900"
+              height="675"
+            />
+          </div>
+        </article>
+
+        <article class="split-section layout-b">
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=900&q=80"
+              alt="Coquetel em copo elegante"
+              width="900"
+              height="675"
+            />
+          </div>
+          <div class="split-text">
+            <span class="label-gold">Coquetéis</span>
+            <h2>Negroni envelhecido</h2>
+            <p class="desc">
+              Gin, vermute rosso e bitter, repousado em carvalho. Servido com
+              casca de laranja flambada. Amargo-aromático, icônico.
+            </p>
+            <a href="itens/bebida-negroni.html" class="btn-gold">Conhecer a bebida</a>
+          </div>
+        </article>
+
+        <article class="split-section layout-a">
+          <div class="split-text">
+            <span class="label-gold">Sem álcool</span>
+            <h2>Limonada de capim-santo</h2>
+            <p class="desc">
+              Limões tahiti, xarope leve de capim-santo fresco e água com gás.
+              Refrescante e aromática — acompanha bem todo o cardápio.
+            </p>
+            <a href="itens/bebida-limonada.html" class="btn-gold">Conhecer a bebida</a>
+          </div>
+          <div class="split-media">
+            <img
+              src="https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?w=900&q=80"
+              alt="Limonada gelada com hortelã"
+              width="900"
+              height="675"
+            />
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">Mi Casa Su Casa — experiência gastronômica</footer>
+    </div>
+    <script>
+      (function () {
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+        function irTopo() {
+          if (window.location.hash) {
+            history.replaceState(
+              null,
+              "",
+              window.location.pathname + window.location.search
+            );
+          }
+          window.scrollTo(0, 0);
+        }
+        irTopo();
+        document.addEventListener("DOMContentLoaded", irTopo);
+        window.addEventListener("load", irTopo);
+        window.addEventListener("pageshow", function (ev) {
+          if (ev.persisted) irTopo();
+        });
+      })();
+    </script>
+  </body>
+</html>

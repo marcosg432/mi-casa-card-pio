@@ -1,0 +1,16 @@
+{
+  "name": "mi-casa-cardapio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cardápio digital Mi Casa Su Casa",
+  "scripts": {
+    "start": "serve . -l 3013 -n",
+    "serve": "serve . -l 3013 -n"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
